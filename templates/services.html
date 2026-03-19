@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Services | Parivahan</title>
+
+    <!-- Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+
+<!-- NAVBAR (SAME AS OTHER PAGES – DO NOT CHANGE COLORS) -->
+<div class="navbar-custom d-flex justify-content-between align-items-center">
+    <div class="text-white fw-bold fs-5">Parivahan</div>
+
+    <div>
+        <a href="/">Home</a>
+        <a href="/buses">Bus Details</a>
+        <a href="/services">Services</a>
+        <a href="/book">Book Bus</a>
+
+        {% if session.get("user") %}
+            <span style="color:white; margin-left:20px;">
+                Welcome {{ session.get("user") }}
+            </span>
+            <a href="/logout" class="btn-auth ms-3">Logout</a>
+        {% else %}
+            <a href="/login" class="btn-auth ms-3">Login</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="page-content">
+
+    <h2 class="text-center mb-5">Our Services</h2>
+
+    <div class="container">
+        <div class="row g-4 justify-content-center">
+
+            <div class="col-md-4">
+                <div class="card shadow h-100 text-center p-4">
+                    <h5 class="mb-3">Online Ticket Booking</h5>
+                    <p>
+                        Book bus tickets easily from anywhere using our
+                        simple and user-friendly online booking system.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow h-100 text-center p-4">
+                    <h5 class="mb-3">Live Bus Timings</h5>
+                    <p>
+                        Get real-time information about bus schedules,
+                        routes, and arrival timings.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow h-100 text-center p-4">
+                    <h5 class="mb-3">Secure Payments</h5>
+                    <p>
+                        Safe and secure payment options to ensure
+                        reliable and trusted transactions.
+                    </p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow h-100 text-center p-4">
+                    <h5 class="mb-3">24/7 Customer Support</h5>
+                    <p>
+                        Our support team is available 24/7 to help
+                        customers with booking and travel queries.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

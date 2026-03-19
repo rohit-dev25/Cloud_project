@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial;
+        }
+
+        .header {
+            background: #2a5298;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+
+        .menu {
+            width: 200px;
+            height: 100vh;
+            background: #1e3c72;
+            float: left;
+            padding-top: 20px;
+        }
+
+        .menu a {
+            display: block;
+            color: white;
+            padding: 10px;
+            text-decoration: none;
+        }
+
+        .menu a:hover {
+            background: #2a5298;
+        }
+
+        .content {
+            margin-left: 200px;
+            padding: 20px;
+        }
+
+        .card {
+            background: #f2f2f2;
+            padding: 20px;
+            margin: 10px 0;
+            border-radius: 5px;
+        }
+
+        .logout {
+            background: red;
+            padding: 8px 15px;
+            color: white;
+            text-decoration: none;
+            float: right;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    Admin Dashboard
+    <a href="/logout" class="logout">Logout</a>
+</div>
+
+<div class="menu">
+    <a href="/add_bus">Add Bus</a>
+    <a href="/view_buses">View Buses</a>
+    <a href="/view_bookings">View Bookings</a>
+    <a href="/view_reviews">View Reviews</a>
+</div>
+
+<div class="content">
+    <div class="card">
+        <h3>Welcome, Admin!</h3>
+        <p>Online Bus Ticket Booking System</p>
+    </div>
+</div>
+
+</body>
+</html>

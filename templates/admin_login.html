@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login - Bus Booking System</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, pink, #2a5298);
+            font-family: Arial, sans-serif;
+        }
+
+        .login-container {
+            width: 350px;
+            background: white;
+            padding: 30px;
+            margin: 120px auto;
+            border-radius: 10px;
+            box-shadow: 0px 0px 15px rgba(0,0,0,0.3);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #2a5298;
+        }
+
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #2a5298;;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #1e3c72;
+        }
+
+        .footer-text {
+            margin-top: 15px;
+            font-size: 12px;
+            color: gray;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        
+        <!-- Connect this form to Flask app.py -->
+        <form action="/admin_login" method="POST">
+            <input type="text" name="username" placeholder="Enter Admin Username" required>
+            <input type="password" name="password" placeholder="Enter Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <div class="footer-text">
+            Online Bus Ticket Booking System
+        </div>
+    </div>
+
+</body>
+</html>

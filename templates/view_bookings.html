@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>View Bookings</title>
+</head>
+<body>
+
+<h2>All Bookings</h2>
+
+<table border="1" cellpadding="10">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Bus Name</th>
+        <th>Seat No</th>
+        <th>Action</th>
+    </tr>
+
+    {% for booking in bookings %}
+    <tr>
+        <td>{{ booking.id }}</td>
+        <td>{{ booking.name }}</td>
+        <td>{{ booking.bus_name }}</td>
+        <td>{{ booking.seat_no }}</td>
+         <td>
+            <a href="/delete_booking/{{ booking.id }}" class="btn btn-danger">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+</body>
+</html>

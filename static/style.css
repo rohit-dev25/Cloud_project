@@ -1,0 +1,129 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* NAVBAR */
+.navbar {
+    background-color: #0b1d3a;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar h2 {
+    color: white;
+    margin: 0;
+}
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    margin-left: 20px;
+    font-size: 14px;
+}
+
+.navbar a:hover {
+    text-decoration: underline;
+}
+
+/* HERO */
+.hero {
+    background: url("https://images.unsplash.com/photo-1544620347-c4fd4a3d5957") no-repeat center;
+    background-size: cover;
+    height: 85vh;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 60px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+}
+
+.hero-content button {
+    padding: 12px 20px;
+    background-color: #ff9800;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* SECTIONS */
+.section {
+    padding: 40px;
+}
+
+.card {
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+button {
+    padding: 8px 14px;
+    background: #ff9800;
+    border: none;
+    cursor: pointer;
+}
+.navbar-custom {
+    background: #0b1d3a;
+    padding: 14px 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-custom a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+.btn-auth {
+    background: #00bfff;
+    padding: 6px 14px;
+    border-radius: 5px;
+    color: black !important;
+    font-weight: 600;
+}
+.page-content {
+    margin-top: 100px;   /* pushes content below navbar */
+    padding: 20px 60px;
+}
+/* HEADER */
+.navbar-custom {
+    background: #0b1d3a;
+    padding: 14px 60px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.navbar-custom a {
+    color: white;
+    text-decoration: none;
+    margin-left: 22px;
+    font-size: 14px;
+}
+
+.btn-auth {
+    background: #00bfff;
+    padding: 6px 14px;
+    border-radius: 5px;
+    color: black !important;
+    font-weight: 600;
+}
+
+/* PAGE CONTENT */
+.page-content {
+    margin-top: 90px;   /* SAME look as 2nd image */
+    padding: 40px 60px;
+    min-height: 100vh;
+    background: #f8f9fa;
+}

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Register</title>
+    <style>
+        body {
+            background: linear-gradient(to right, #1e3c72, #2a5298);
+            font-family: Arial;
+        }
+
+        .container {
+            width: 350px;
+            background: white;
+            padding: 30px;
+            margin: 100px auto;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #2a5298;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        a {
+            text-decoration: none;
+            color: #2a5298;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Admin Registration</h2>
+
+    <form action="/admin_register" method="POST">
+        <input type="text" name="username" placeholder="Enter Username" required>
+        <input type="password" name="password" placeholder="Enter Password" required>
+        <button type="submit">Register</button>
+    </form>
+
+    <p>Already have account? <a href="/admin_login">Login</a></p>
+</div>
+
+</body>
+</html>

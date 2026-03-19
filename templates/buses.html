@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bus Details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<div class="navbar-custom d-flex justify-content-between align-items-center p-3 bg-dark">
+    <div class="text-white fw-bold fs-5">Parivahan</div>
+
+    <div>
+        <a href="/" class="text-white me-3">Home</a>
+        <a href="/buses" class="text-white me-3">Bus Details</a>
+        <a href="/services" class="text-white me-3">Services</a>
+        <a href="/book" class="text-white me-3">Book Bus</a>
+
+        {% if session.get("user") %}
+            <span class="text-white ms-3">
+                Welcome {{ session.get("user") }}
+            </span>
+            <a href="/logout" class="btn btn-light btn-sm ms-2">Logout</a>
+        {% else %}
+            <a href="/login" class="btn btn-light btn-sm ms-2">Login</a>
+        {% endif %}
+    </div>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="container mt-4 page-content">
+
+    <h2 class="text-center mb-4">Available Buses</h2>
+
+    
+
+
+    <div class="row g-4">
+
+        {% if buses %}
+            {% for bus in buses %}
+            <div class="col-md-4">
+                <div class="card shadow p-4 h-100">
+
+                    <h5 class="fw-bold">{{ bus['bus_name'] }}</h5>
+                    <p><strong>Route:</strong> {{ bus['route'] }}</p>
+                    <p><strong>Time:</strong> {{ bus['time'] }}</p>
+                    <p><strong>Seats:</strong> {{ bus['seats'] }}</p>
+
+                    <a href="{{ url_for('book') }}?bus_name={{ bus['bus_name'] }}&route={{ bus['route'] }}&time={{ bus['time'] }}"
+                       class="btn btn-primary w-100 mb-3">
+                       Book Bus
+                    </a>
+
+                    <hr>
+
+                    <!-- REVIEWS SECTION -->
+                    <h6 class="fw-bold">Reviews:</h6>
+
+                    {% set found = false %}
+                    {% for review in reviews %}
+                        {% if review['bus_name'] == bus['bus_name'] %}
+                            {% set found = true %}
+                            <div class="mb-2">
+                                ⭐ {{ review['rating'] }}/5 <br>
+                                {{ review['comment'] }} <br>
+                                <small class="text-muted">By {{ review['user_email'] }}</small>
+                            </div>
+                            <hr>
+                        {% endif %}
+                    {% endfor %}
+
+                    {% if not found %}
+                        <p class="text-muted">No reviews yet.</p>
+                    {% endif %}
+
+                    <!-- REVIEW FORM -->
+                    {% if session.get("user") %}
+                    <form method="POST" action="{{ url_for('add_review') }}">
+                        <input type="hidden" name="bus_name" value="{{ bus['bus_name'] }}">
+
+                        <label>Rating (1-5)</label>
+                        <input type="number" name="rating" min="1" max="5" class="form-control mb-2" required>
+
+                        <label>Comment</label>
+                        <textarea name="comment" class="form-control mb-2" required></textarea>
+
+                        <button type="submit" class="btn btn-success btn-sm w-100">
+                            Submit Review
+                        </button>
+                    </form>
+                    {% else %}
+                        <p class="text-danger mt-2">Login to add review</p>
+                    {% endif %}
+
+                </div>
+            </div>
+            {% endfor %}
+        {% else %}
+            <div class="col-12 text-center">
+                <h5>No buses available.</h5>
+            </div>
+        {% endif %}
+
+    </div>
+</div>
+
+</body>
+</html>
